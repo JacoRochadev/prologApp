@@ -22,8 +22,8 @@ class TireDetailsModel extends TireDetailsEntity {
     return TireDetailsModel(
       id: json['id'],
       serialNumber: json['serialNumber'],
-      tireSizeHeight: json['tireSizeHeight'],
-      tireSizeWidth: json['tireSizeWidth'],
+      tireSizeHeight: json['tireSize']['height'],
+      tireSizeWidth: json['tireSize']['width'],
       timesRetreaded: json['timesRetreaded'],
       maxRetreadsExpected: json['maxRetreadsExpected'],
       recommendedPressure: json['recommendedPressure'],

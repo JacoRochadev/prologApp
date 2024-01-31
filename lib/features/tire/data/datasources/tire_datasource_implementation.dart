@@ -44,8 +44,9 @@ class TireDataSourceImplementation implements ITireDataSource {
   }
 
   @override
-  Future<Either<String, TireDetailsEntity>> getTireById(
-      {required int id}) async {
+  Future<Either<String, TireDetailsEntity>> getTireById({
+    required int id,
+  }) async {
     try {
       final response = await _service.dio.get(
         'api/v3/tires/$id',

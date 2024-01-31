@@ -2,14 +2,12 @@ import 'package:equatable/equatable.dart';
 
 class TireDetailsEntity extends Equatable {
   final String serialNumber, make, companyGroupName, branchOfficeName, status;
-  final int id,
+  final int id, timesRetreaded, maxRetreadsExpected;
+  final double purchaseCost,
       tireSizeHeight,
-      tireSizeWidth,
-      timesRetreaded,
-      maxRetreadsExpected,
       recommendedPressure,
+      tireSizeWidth,
       currentPressure;
-  final double purchaseCost;
   final bool newTire;
 
   const TireDetailsEntity({
