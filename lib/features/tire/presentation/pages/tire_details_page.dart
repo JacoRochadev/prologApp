@@ -42,11 +42,10 @@ class _TireDetailsPageState extends State<TireDetailsPage> with SnackbarMixin {
               return Center(
                 child: Card(
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      ListTile(
-                        title: Text(
-                          tireDetails.serialNumber,
-                        ),
+                      Text(
+                        tireDetails.serialNumber,
                       ),
                     ],
                   ),

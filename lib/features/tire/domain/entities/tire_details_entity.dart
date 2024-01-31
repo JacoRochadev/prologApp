@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class TireDetailsEntity extends Equatable {
   final String serialNumber, make, companyGroupName, branchOfficeName, status;
   final int id, timesRetreaded, maxRetreadsExpected;
-  final double purchaseCost,
+  final num purchaseCost,
       tireSizeHeight,
       recommendedPressure,
       tireSizeWidth,
