@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prolog_app/core/services/dio_service/dio_service.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource_implementation.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 
 void main() {
@@ -22,7 +23,7 @@ void main() {
 
   test('tire datasource implementation getTireById ...', () async {
     // arrange
-    Either<String, TireEntity> response;
+    Either<String, TireDetailsEntity> response;
     // act
     response = await datasource.getTireById(
       id: 1,

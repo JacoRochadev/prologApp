@@ -3,7 +3,9 @@ import 'package:dio/dio.dart';
 import 'package:prolog_app/core/errors/parse_api_error_response.dart';
 import 'package:prolog_app/core/services/dio_service/dio_service.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource.dart';
+import 'package:prolog_app/features/tire/data/models/tire_details_model.dart';
 import 'package:prolog_app/features/tire/data/models/tire_model.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 
 class TireDataSourceImplementation implements ITireDataSource {
@@ -42,13 +44,14 @@ class TireDataSourceImplementation implements ITireDataSource {
   }
 
   @override
-  Future<Either<String, TireEntity>> getTireById({required int id}) async {
+  Future<Either<String, TireDetailsEntity>> getTireById(
+      {required int id}) async {
     try {
       final response = await _service.dio.get(
         'api/v3/tires/$id',
       );
 
-      return Right(TireModel.fromJson(response.data));
+      return Right(TireDetailsModel.fromJson(response.data));
     } on DioException catch (error) {
       return Left(parseApiErrorResponse(error.response?.data));
     } catch (error) {

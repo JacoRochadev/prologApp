@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 import 'package:prolog_app/features/tire/domain/repositories/tire_repository.dart';
 
@@ -19,7 +20,7 @@ class TireUseCases {
     );
   }
 
-  Future<Either<String, TireEntity>> getTireById({
+  Future<Either<String, TireDetailsEntity>> getTireById({
     required int id,
   }) async {
     return await _repository.getTireById(id: id);

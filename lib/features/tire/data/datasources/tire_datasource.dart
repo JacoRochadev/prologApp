@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 
 abstract class ITireDataSource {
@@ -7,7 +8,7 @@ abstract class ITireDataSource {
     required int pageSize,
     required int pageNumber,
   });
-  Future<Either<String, TireEntity>> getTireById({
+  Future<Either<String, TireDetailsEntity>> getTireById({
     required int id,
   });
 }

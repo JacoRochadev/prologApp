@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 import 'package:prolog_app/features/tire/domain/repositories/tire_repository.dart';
 
@@ -22,7 +23,7 @@ class TireRepositoryImplementation implements ITireRepository {
   }
 
   @override
-  Future<Either<String, TireEntity>> getTireById({required int id}) {
+  Future<Either<String, TireDetailsEntity>> getTireById({required int id}) {
     return tireDataSource.getTireById(id: id);
   }
 }
