@@ -16,6 +16,28 @@ mixin _$TireStore on _TireStoreBase, Store {
       (_$isLoadingTiresComputed ??= Computed<bool>(() => super.isLoadingTires,
               name: '_TireStoreBase.isLoadingTires'))
           .value;
+  Computed<bool>? _$isLoadingTireDetailsComputed;
+
+  @override
+  bool get isLoadingTireDetails => (_$isLoadingTireDetailsComputed ??=
+          Computed<bool>(() => super.isLoadingTireDetails,
+              name: '_TireStoreBase.isLoadingTireDetails'))
+      .value;
+
+  late final _$_tireAtom = Atom(name: '_TireStoreBase._tire', context: context);
+
+  @override
+  ObservableFuture<Either<String, TireDetailsEntity>>? get _tire {
+    _$_tireAtom.reportRead();
+    return super._tire;
+  }
+
+  @override
+  set _tire(ObservableFuture<Either<String, TireDetailsEntity>>? value) {
+    _$_tireAtom.reportWrite(value, super._tire, () {
+      super._tire = value;
+    });
+  }
 
   late final _$_tiresAtom =
       Atom(name: '_TireStoreBase._tires', context: context);
@@ -49,6 +71,22 @@ mixin _$TireStore on _TireStoreBase, Store {
     });
   }
 
+  late final _$tireDetailsAtom =
+      Atom(name: '_TireStoreBase.tireDetails', context: context);
+
+  @override
+  Observable<TireDetailsEntity>? get tireDetails {
+    _$tireDetailsAtom.reportRead();
+    return super.tireDetails;
+  }
+
+  @override
+  set tireDetails(Observable<TireDetailsEntity>? value) {
+    _$tireDetailsAtom.reportWrite(value, super.tireDetails, () {
+      super.tireDetails = value;
+    });
+  }
+
   late final _$getAllTiresAsyncAction =
       AsyncAction('_TireStoreBase.getAllTires', context: context);
 
@@ -61,11 +99,33 @@ mixin _$TireStore on _TireStoreBase, Store {
       ActionController(name: '_TireStoreBase', context: context);
 
   @override
+  Future<Either<String, TireDetailsEntity>> getTireById(int id) {
+    final _$actionInfo = _$_TireStoreBaseActionController.startAction(
+        name: '_TireStoreBase.getTireById');
+    try {
+      return super.getTireById(id);
+    } finally {
+      _$_TireStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeTiresList(List<TireEntity> value) {
     final _$actionInfo = _$_TireStoreBaseActionController.startAction(
         name: '_TireStoreBase.changeTiresList');
     try {
       return super.changeTiresList(value);
+    } finally {
+      _$_TireStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void changeTireDetails(TireDetailsEntity value) {
+    final _$actionInfo = _$_TireStoreBaseActionController.startAction(
+        name: '_TireStoreBase.changeTireDetails');
+    try {
+      return super.changeTireDetails(value);
     } finally {
       _$_TireStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -86,7 +146,9 @@ mixin _$TireStore on _TireStoreBase, Store {
   String toString() {
     return '''
 tiresList: ${tiresList},
-isLoadingTires: ${isLoadingTires}
+tireDetails: ${tireDetails},
+isLoadingTires: ${isLoadingTires},
+isLoadingTireDetails: ${isLoadingTireDetails}
     ''';
   }
 }

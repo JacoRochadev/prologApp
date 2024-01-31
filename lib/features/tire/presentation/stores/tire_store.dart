@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:mobx/mobx.dart';
+import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 import 'package:prolog_app/features/tire/domain/usecases/tire_usecases.dart';
 
@@ -14,18 +15,27 @@ abstract class _TireStoreBase with Store {
   _TireStoreBase(this._tireUseCases);
 
   @observable
+  ObservableFuture<Either<String, TireDetailsEntity>>? _tire;
+
+  @observable
   ObservableFuture<Either<String, List<TireEntity>>>? _tires;
+
+  @observable
+  Observable<TireDetailsEntity>? tireDetails;
 
   @observable
   ObservableList<TireEntity> tiresList = <TireEntity>[].asObservable();
 
   @action
-  void changeTiresList(List<TireEntity> value) =>
-      tiresList = value.asObservable();
+  Future<Either<String, TireDetailsEntity>> getTireById(int id) {
+    return _tire = ObservableFuture(
+      _tireUseCases.getTireById(id: id),
+    );
+  }
 
   @action
-  void addToList(List<TireEntity> value) =>
-      tiresList.addAll(value.asObservable());
+  void changeTireDetails(TireDetailsEntity value) =>
+      tireDetails = Observable(value);
 
   @action
   Future<Either<String, List<TireEntity>>> getAllTires() async {
@@ -37,6 +47,17 @@ abstract class _TireStoreBase with Store {
       ),
     );
   }
+
+  @action
+  void changeTiresList(List<TireEntity> value) =>
+      tiresList = value.asObservable();
+
+  @action
+  void addToList(List<TireEntity> value) =>
+      tiresList.addAll(value.asObservable());
+
+  @computed
+  bool get isLoadingTireDetails => _tire?.status == FutureStatus.pending;
 
   @computed
   bool get isLoadingTires => _tires?.status == FutureStatus.pending;

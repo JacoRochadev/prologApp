@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:prolog_app/core/widgets/snackbar_mixin.dart';
 import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
 
 class TireDetailsPage extends StatefulWidget {
@@ -15,7 +17,7 @@ class TireDetailsPage extends StatefulWidget {
   State<TireDetailsPage> createState() => _TireDetailsPageState();
 }
 
-class _TireDetailsPageState extends State<TireDetailsPage> {
+class _TireDetailsPageState extends State<TireDetailsPage> with SnackbarMixin {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,10 +30,49 @@ class _TireDetailsPageState extends State<TireDetailsPage> {
                 ),
           ),
         ),
-        body: const Center(
-          child: Card(),
+        body: Observer(
+          builder: (context) {
+            if (widget.controller.isLoadingTireDetails &&
+                widget.controller.tireDetails == null) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              final tireDetails = widget.controller.tireDetails!.value;
+              return Center(
+                child: Card(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          tireDetails.serialNumber,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+          },
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    widget.controller.getTireById(widget.id).then((value) {
+      value.fold(
+        (l) => showSnackBarError(l, context),
+        (r) => widget.controller.changeTireDetails(r),
+      );
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.controller.tireDetails = null;
+    super.dispose();
   }
 }

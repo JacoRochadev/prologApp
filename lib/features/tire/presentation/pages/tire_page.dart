@@ -58,12 +58,13 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
                             children: [
                               ...widget.controller.tiresList.map(
                                 (element) => ListItemWidget(
-                                  element: element,
-                                  onTap: () => Modular.to.pushNamed(
-                                    '/tire/tire_details',
-                                    arguments: element.id,
-                                  ),
-                                ),
+                                    element: element,
+                                    onTap: () async {
+                                      await Modular.to.pushNamed(
+                                        '/tire/tire_details',
+                                        arguments: element.id,
+                                      );
+                                    }),
                               ),
                               if (widget.controller.isLoadingTires &&
                                   widget.controller.tiresList.isNotEmpty)
@@ -129,7 +130,7 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
   }
 
   void _showError(String error) {
-    if (error == 'Cliente não encontrado') {
+    if (error == 'Pneus não encontrados') {
       widget.controller.changeHaveMore();
     } else {
       showSnackBarError(error, context);
