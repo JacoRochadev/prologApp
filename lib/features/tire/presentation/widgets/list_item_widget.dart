@@ -5,33 +5,38 @@ class ListItemWidget extends StatelessWidget {
   const ListItemWidget({
     super.key,
     required this.element,
+    required this.onTap,
   });
 
   final TireEntity element;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 8,
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black,
-            width: .3,
-          ),
-          borderRadius: BorderRadius.circular(8),
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 8,
         ),
-        child: ListTile(
-          title: Text(
-            element.serialNumber,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                ),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black,
+              width: .3,
+            ),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: ListTile(
+            title: Text(
+              element.serialNumber,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
+                  ),
+            ),
           ),
         ),
       ),

@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:prolog_app/core/widgets/snackbar_mixin.dart';
 import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
 import 'package:prolog_app/features/tire/presentation/widgets/list_item_widget.dart';
+import 'package:prolog_app/features/tire/presentation/widgets/loading_pagination_widget.dart';
 
 class TirePage extends StatefulWidget {
   const TirePage({
@@ -27,10 +29,12 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Pneus',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  )),
+          title: Text(
+            'Pneus',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+          ),
         ),
         body: Observer(
           builder: (context) {
@@ -55,21 +59,15 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
                               ...widget.controller.tiresList.map(
                                 (element) => ListItemWidget(
                                   element: element,
+                                  onTap: () => Modular.to.pushNamed(
+                                    '/tire/tire_details',
+                                    arguments: element.id,
+                                  ),
                                 ),
                               ),
                               if (widget.controller.isLoadingTires &&
                                   widget.controller.tiresList.isNotEmpty)
-                                const Column(
-                                  children: [
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                    CircularProgressIndicator(),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                  ],
-                                )
+                                const LoadingPaginationWidget()
                             ],
                           ),
                         ),

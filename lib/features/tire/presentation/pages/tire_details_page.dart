@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 class TireDetailsPage extends StatefulWidget {
-  const TireDetailsPage({super.key});
+  const TireDetailsPage({
+    super.key,
+    required this.id,
+  });
+
+  final int id;
 
   @override
   State<TireDetailsPage> createState() => _TireDetailsPageState();
@@ -13,13 +17,16 @@ class _TireDetailsPageState extends State<TireDetailsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Modular.to.pushNamed('/tire/');
-            },
-            child: const Text('teste2'),
+        appBar: AppBar(
+          title: Text(
+            'Detalhes do Pneu',
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
           ),
+        ),
+        body: const Center(
+          child: Card(),
         ),
       ),
     );

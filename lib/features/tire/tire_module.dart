@@ -29,7 +29,9 @@ class TireModule extends Module {
     );
     r.child(
       '/tire_details',
-      child: (context) => const TireDetailsPage(),
+      child: (context) => TireDetailsPage(
+        id: r.args.data,
+      ),
     );
   }
 }
