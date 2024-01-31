@@ -23,6 +23,7 @@ class _TireDetailsPageState extends State<TireDetailsPage> with SnackbarMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
         appBar: AppBar(
           title: Text(
             'Detalhes do Pneu',

@@ -18,20 +18,19 @@ class CardItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
             width: screenWidth * 0.4,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   label1,
-                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -47,13 +46,12 @@ class CardItemWidget extends StatelessWidget {
           SizedBox(
             width: screenWidth * 0.4,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   label2,
-                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                 ),

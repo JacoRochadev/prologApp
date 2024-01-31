@@ -28,6 +28,7 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Theme.of(context).secondaryHeaderColor,
         appBar: AppBar(
           title: Text(
             'Pneus',

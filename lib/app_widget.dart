@@ -20,16 +20,14 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.white),
-          backgroundColor: Color.fromARGB(255, 11, 50, 94),
+          iconTheme: IconThemeData(
+            color: Color(0xFFA1B5FF),
+          ),
+          backgroundColor: Color(0xFF1B244C),
           elevation: 0,
         ),
-        primaryColor: const Color.fromARGB(255, 44, 107, 179),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          elevation: 0,
-          backgroundColor: Color.fromARGB(255, 11, 50, 94),
-          foregroundColor: Colors.white,
-        ),
+        primaryColor: const Color(0xFF1B244C),
+        secondaryHeaderColor: const Color(0xFF5579FF),
       ),
       supportedLocales: const [
         Locale('pt', 'BR'),
