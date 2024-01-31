@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:prolog_app/core/widgets/snackbar_mixin.dart';
 import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
+import 'package:prolog_app/features/tire/presentation/widgets/card_details_widget.dart';
 
 class TireDetailsPage extends StatefulWidget {
   const TireDetailsPage({
@@ -40,15 +41,8 @@ class _TireDetailsPageState extends State<TireDetailsPage> with SnackbarMixin {
             } else {
               final tireDetails = widget.controller.tireDetails!.value;
               return Center(
-                child: Card(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        tireDetails.serialNumber,
-                      ),
-                    ],
-                  ),
+                child: CardDetailsWidget(
+                  tireDetails: tireDetails,
                 ),
               );
             }
