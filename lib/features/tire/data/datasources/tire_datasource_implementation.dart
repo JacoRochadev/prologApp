@@ -42,8 +42,17 @@ class TireDataSourceImplementation implements ITireDataSource {
   }
 
   @override
-  Future<TireEntity> getTireById({required int id}) {
-    // return dioServiceTire.getTireById(id: id);
-    return Future.value(const TireModel(id: 1, serialNumber: '123'));
+  Future<Either<String, TireEntity>> getTireById({required int id}) async {
+    try {
+      final response = await _service.dio.get(
+        'api/v3/tires/$id',
+      );
+
+      return Right(TireModel.fromJson(response.data));
+    } on DioException catch (error) {
+      return Left(parseApiErrorResponse(error.response?.data));
+    } catch (error) {
+      return Left(error.toString());
+    }
   }
 }

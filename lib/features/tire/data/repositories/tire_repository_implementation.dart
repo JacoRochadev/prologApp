@@ -22,7 +22,7 @@ class TireRepositoryImplementation implements ITireRepository {
   }
 
   @override
-  Future<TireEntity> getTireById({required int id}) {
+  Future<Either<String, TireEntity>> getTireById({required int id}) {
     return tireDataSource.getTireById(id: id);
   }
 }

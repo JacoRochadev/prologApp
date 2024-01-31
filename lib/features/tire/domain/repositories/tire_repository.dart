@@ -7,7 +7,7 @@ abstract class ITireRepository {
     required int pageSize,
     required int pageNumber,
   });
-  Future<TireEntity> getTireById({
+  Future<Either<String, TireEntity>> getTireById({
     required int id,
   });
 }

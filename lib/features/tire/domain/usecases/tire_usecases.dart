@@ -19,7 +19,7 @@ class TireUseCases {
     );
   }
 
-  Future<TireEntity> getTireById({
+  Future<Either<String, TireEntity>> getTireById({
     required int id,
   }) async {
     return await _repository.getTireById(id: id);
