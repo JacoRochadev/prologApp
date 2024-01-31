@@ -40,13 +40,12 @@ abstract class _TireStoreBase with Store {
 
   @computed
   bool get isLoadingTires => _tires?.status == FutureStatus.pending;
-  int pageNumber = 20;
 
-  int pageSize = 1;
+  int pageNumber = 0;
 
-  void resetPagination() => pageSize = 1;
+  int pageSize = 20;
 
-  void plusPagination() => pageSize++;
+  void plusPagination() => pageNumber++;
 
   bool haveMore = true;
 

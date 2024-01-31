@@ -24,7 +24,7 @@ class TireDataSourceImplementation implements ITireDataSource {
         "pageNumber": pageNumber,
       };
       final response = await _service.dio.get(
-        '',
+        'api/v3/tires',
         queryParameters: queryParameters,
       );
       bool status = response.data['empty'];

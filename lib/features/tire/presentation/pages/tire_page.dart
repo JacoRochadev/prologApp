@@ -101,7 +101,8 @@ class _TirePageState extends State<TirePage> with SnackbarMixin {
     _scrollController.addListener(() {
       double maxScrollPosition = _scrollController.position.maxScrollExtent;
       double currentScrollPosition = _scrollController.position.pixels;
-      if (maxScrollPosition <= currentScrollPosition + 200) {
+      if (maxScrollPosition <= (currentScrollPosition + 200.0) &&
+          widget.controller.tiresList.isNotEmpty) {
         _addTimer(() {
           if (widget.controller.haveMore) {
             widget.controller.plusPagination();

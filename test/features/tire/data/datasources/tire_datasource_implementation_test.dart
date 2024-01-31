@@ -16,6 +16,7 @@ void main() {
       pageSize: 10,
       pageNumber: 1,
     );
+    response.fold((l) => print(l), (r) => print(r));
     // assert
     expect(response.isRight(), true);
   });

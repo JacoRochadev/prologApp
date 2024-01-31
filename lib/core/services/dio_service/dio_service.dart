@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:prolog_app/parameters.dart';
 
 class DioService {
   static const duration = Duration(milliseconds: 50000);
-  final Dio dio = Dio(
+  final dio = Dio(
     BaseOptions(
-      baseUrl: 'https://prologapp.com/prolog/api/v3/tires',
+      baseUrl: baseUrl,
       headers: {
         'Content-Type': 'application/json',
-        'x-prolog-api-token':
-            'ePTC2XrkY34WKUCXq48fTxrLCzdV3M35MNpCfBYavabwwY9BJXg',
+        'x-prolog-api-token': key,
       },
     ),
   );
