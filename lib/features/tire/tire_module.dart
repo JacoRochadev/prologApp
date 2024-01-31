@@ -31,6 +31,7 @@ class TireModule extends Module {
       '/tire_details',
       child: (context) => TireDetailsPage(
         id: r.args.data,
+        controller: Modular.get<TireStore>(),
       ),
     );
   }

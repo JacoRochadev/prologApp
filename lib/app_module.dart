@@ -1,31 +1,16 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:prolog_app/core/services/dio_service/dio_service.dart';
-import 'package:prolog_app/features/tire/data/datasources/tire_datasource.dart';
-import 'package:prolog_app/features/tire/data/datasources/tire_datasource_implementation.dart';
-import 'package:prolog_app/features/tire/data/repositories/tire_repository_implementation.dart';
-import 'package:prolog_app/features/tire/domain/repositories/tire_repository.dart';
-import 'package:prolog_app/features/tire/domain/usecases/tire_usecases.dart';
-import 'package:prolog_app/features/tire/presentation/pages/tire_page.dart';
-import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
+import 'package:prolog_app/core/view/splash_page.dart';
 import 'package:prolog_app/features/tire/tire_module.dart';
 
 class AppModule extends Module {
   @override
-  void binds(i) {
-    i.addSingleton<DioService>(DioService.new);
-    i.addSingleton<TireStore>(TireStore.new);
-    i.addSingleton<TireUseCases>(TireUseCases.new);
-    i.addSingleton<ITireRepository>(TireRepositoryImplementation.new);
-    i.addSingleton<ITireDataSource>(TireDataSourceImplementation.new);
-  }
+  void binds(i) {}
 
   @override
   void routes(r) {
     r.child(
       Modular.initialRoute,
-      child: (context) => TirePage(
-        controller: Modular.get<TireStore>(),
-      ),
+      child: (context) => const SplashPage(),
     );
 
     r.module(
