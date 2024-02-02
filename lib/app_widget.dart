@@ -23,7 +23,7 @@ class AppWidget extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           iconTheme: IconThemeData(
-            color: Color(0xFFA1B5FF),
+            color: Colors.white,
           ),
           backgroundColor: Color(0xFF2E3D80),
         ),

@@ -23,9 +23,9 @@ class ListItemWidget extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: const Color(0XFF2E3D80),
             border: Border.all(
-              color: Colors.black,
+              color: Colors.white,
               width: .3,
             ),
             borderRadius: BorderRadius.circular(8),
@@ -33,14 +33,14 @@ class ListItemWidget extends StatelessWidget {
           child: ListTile(
             trailing: const Icon(
               Icons.tire_repair,
-              color: Colors.black,
+              color: Colors.white,
               size: 30,
             ),
             title: Text(
               'Empresa: ${element.companyGroupName}',
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     decoration: TextDecoration.none,
                   ),
@@ -52,7 +52,7 @@ class ListItemWidget extends StatelessWidget {
                   'Marca: ${element.make}',
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.none,
                         fontFamily: GoogleFonts.montserrat().fontFamily,
@@ -62,7 +62,7 @@ class ListItemWidget extends StatelessWidget {
                   'Custo: ${formatNumToStringReal(element.purchaseCost)}',
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.none,
                         fontFamily: GoogleFonts.montserrat().fontFamily,

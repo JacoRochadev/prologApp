@@ -31,14 +31,14 @@ class CardItemWidget extends StatelessWidget {
                 Text(
                   label1,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 Text(
                   value1,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontFamily: GoogleFonts.montserrat().fontFamily,
                       ),
                 ),
@@ -53,14 +53,14 @@ class CardItemWidget extends StatelessWidget {
                 Text(
                   label2,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 Text(
                   value2,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontFamily: GoogleFonts.montserrat().fontFamily,
                       ),
                 ),

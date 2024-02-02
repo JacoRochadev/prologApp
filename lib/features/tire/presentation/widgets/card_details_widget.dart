@@ -16,8 +16,15 @@ class CardDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Card(
-        color: Colors.white,
+      child: Container(
+        decoration: BoxDecoration(
+          color: const Color(0XFF2E3D80),
+          border: Border.all(
+            color: Colors.white,
+            width: .3,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Column(
