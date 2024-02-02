@@ -30,6 +30,13 @@ class CardDetailsWidget extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              Text(
+                'Número de série: ${tireDetails.serialNumber}',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
               CardItemWidget(
                 label1: 'Empresa:',
                 label2: 'Filial:',
@@ -53,6 +60,12 @@ class CardDetailsWidget extends StatelessWidget {
                 label2: 'Pressão atual:',
                 value1: parseNumToStringPsi(tireDetails.recommendedPressure),
                 value2: parseNumToStringPsi(tireDetails.currentPressure),
+              ),
+              CardItemWidget(
+                label1: 'Vezes recauchutados:',
+                label2: 'Recauchutagens esperadas:',
+                value1: tireDetails.timesRetreaded.toString(),
+                value2: tireDetails.maxRetreadsExpected.toString(),
               ),
               CardItemWidget(
                 label1: 'Status:',

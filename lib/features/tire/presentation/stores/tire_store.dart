@@ -64,7 +64,7 @@ abstract class _TireStoreBase with Store {
 
   int pageNumber = 0;
 
-  int pageSize = 20;
+  int pageSize = 15;
 
   void plusPagination() => pageNumber++;
 
