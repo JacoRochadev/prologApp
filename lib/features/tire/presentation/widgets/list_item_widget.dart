@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:prolog_app/core/utils/format_num_to_string_real.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 
@@ -54,6 +55,7 @@ class ListItemWidget extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.none,
+                        fontFamily: GoogleFonts.montserrat().fontFamily,
                       ),
                 ),
                 Text(
@@ -63,6 +65,7 @@ class ListItemWidget extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.none,
+                        fontFamily: GoogleFonts.montserrat().fontFamily,
                       ),
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -18,6 +19,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'prologApp',
       theme: ThemeData(
+        fontFamily: GoogleFonts.prompt().fontFamily,
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           iconTheme: IconThemeData(
