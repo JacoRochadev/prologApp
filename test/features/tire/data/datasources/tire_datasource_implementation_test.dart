@@ -8,7 +8,9 @@ import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
 void main() {
   DioService dioServiceTire = DioService();
   final datasource = TireDataSourceImplementation(dioServiceTire);
-  test('tire datasource implementation getAllTires ...', () async {
+  test(
+      'return tires from the list on page 1 with 10 results in getAllTires ...',
+      () async {
     // arrange
     Either<String, List<TireEntity>> response;
     // act
@@ -21,7 +23,7 @@ void main() {
     expect(response.isRight(), true);
   });
 
-  test('tire datasource implementation getTireById ...', () async {
+  test('return a specific tire by ID in getTireById ...', () async {
     // arrange
     Either<String, TireDetailsEntity> response;
     // act
