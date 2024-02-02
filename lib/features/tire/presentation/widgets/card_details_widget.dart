@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prolog_app/core/utils/format_num_to_string_real.dart';
+import 'package:prolog_app/core/utils/parse_num_to_string_psi.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/presentation/widgets/card_item_widget.dart';
 
@@ -42,14 +44,14 @@ class CardDetailsWidget extends StatelessWidget {
               CardItemWidget(
                 label1: 'Pressão recomendada:',
                 label2: 'Pressão atual:',
-                value1: tireDetails.recommendedPressure.toString(),
-                value2: tireDetails.currentPressure.toString(),
+                value1: parseNumToStringPsi(tireDetails.recommendedPressure),
+                value2: parseNumToStringPsi(tireDetails.currentPressure),
               ),
               CardItemWidget(
                 label1: 'Status:',
                 label2: 'Custo de compra:',
-                value1: tireDetails.status,
-                value2: tireDetails.purchaseCost.toString(),
+                value1: tireDetails.status?.name ?? '',
+                value2: formatNumToStringReal(tireDetails.purchaseCost),
               ),
             ],
           ),

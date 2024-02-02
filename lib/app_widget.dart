@@ -23,11 +23,10 @@ class AppWidget extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Color(0xFFA1B5FF),
           ),
-          backgroundColor: Color(0xFF1B244C),
-          elevation: 0,
+          backgroundColor: Color(0xFF2E3D80),
         ),
-        primaryColor: const Color(0xFF1B244C),
-        secondaryHeaderColor: const Color(0xFF5579FF),
+        primaryColor: const Color(0xFF2E3D80),
+        secondaryHeaderColor: const Color(0xFF7A97FF),
       ),
       supportedLocales: const [
         Locale('pt', 'BR'),

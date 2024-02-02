@@ -1,3 +1,4 @@
+import 'package:prolog_app/core/utils/enums/status_enum.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 
 class TireDetailsModel extends TireDetailsEntity {
@@ -33,7 +34,7 @@ class TireDetailsModel extends TireDetailsEntity {
       make: json['make']['name'],
       companyGroupName: json['companyGroupName'],
       branchOfficeName: json['branchOfficeName'],
-      status: json['status'],
+      status: StatusEnum.fromPortuguese(json['status']),
     );
   }
 }

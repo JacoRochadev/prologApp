@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:prolog_app/core/utils/enums/status_enum.dart';
 
 class TireDetailsEntity extends Equatable {
-  final String serialNumber, make, companyGroupName, branchOfficeName, status;
+  final String serialNumber, make, companyGroupName, branchOfficeName;
+  final StatusEnum? status;
   final int id, timesRetreaded, maxRetreadsExpected;
   final num purchaseCost,
       tireSizeHeight,
