@@ -38,8 +38,8 @@ class CardDetailsWidget extends StatelessWidget {
               CardItemWidget(
                 label1: 'Altura:',
                 label2: 'Largura:',
-                value1: tireDetails.tireSizeHeight.toString(),
-                value2: tireDetails.tireSizeWidth.toString(),
+                value1: '${tireDetails.tireSizeHeight.toStringAsFixed(1)} cm',
+                value2: '${tireDetails.tireSizeWidth.toStringAsFixed(1)} cm',
               ),
               CardItemWidget(
                 label1: 'Pressão recomendada:',

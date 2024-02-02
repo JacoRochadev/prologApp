@@ -8,27 +8,18 @@
             "name": "prolog_app",
             "request": "launch",
             "type": "dart",
-            "toolArgs": [
-                "--dart-define-from-file=lib/config.json"
-            ],
         },
         {
             "name": "prolog_app (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
-            "toolArgs": [
-                "--dart-define-from-file=lib/config.json"
-            ],
+            "flutterMode": "profile",  
         },
         {
             "name": "prolog_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "toolArgs": [
-                "--dart-define-from-file=lib/config.json"
-            ],
         }
     ]
 }

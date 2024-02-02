@@ -28,7 +28,7 @@ void main() {
     Either<String, TireDetailsEntity> response;
     // act
     response = await datasource.getTireById(
-      id: 1,
+      id: 0,
     );
     // assert
     expect(response.isRight(), true);
