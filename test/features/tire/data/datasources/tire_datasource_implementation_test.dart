@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prolog_app/core/services/dio_service/dio_service.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource_implementation.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
+import 'package:prolog_app/shared/services/dio_service/dio_service.dart';
 
 void main() {
   DioService dioServiceTire = DioService();
@@ -28,7 +28,7 @@ void main() {
     Either<String, TireDetailsEntity> response;
     // act
     response = await datasource.getTireById(
-      id: 0,
+      id: 1,
     );
     // assert
     expect(response.isRight(), true);
