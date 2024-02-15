@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:prolog_app/core/errors/parse_api_error_response.dart';
-import 'package:prolog_app/core/services/dio_service/dio_service.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource.dart';
 import 'package:prolog_app/features/tire/data/models/tire_details_model.dart';
 import 'package:prolog_app/features/tire/data/models/tire_model.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
+import 'package:prolog_app/shared/services/dio_service/dio_service.dart';
+import 'package:prolog_app/shared/services/errors/parse_api_error_response.dart';
 
 class TireDataSourceImplementation implements ITireDataSource {
   final DioService _service;

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:prolog_app/core/utils/enums/status_enum.dart';
+import 'package:prolog_app/shared/utils/enums/status_enum.dart';
 
 class TireDetailsEntity extends Equatable {
   final String serialNumber, make, companyGroupName, branchOfficeName;

@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:prolog_app/core/widgets/snackbar_mixin.dart';
 import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
 import 'package:prolog_app/features/tire/presentation/widgets/list_item_widget.dart';
 import 'package:prolog_app/features/tire/presentation/widgets/loading_pagination_widget.dart';
+import 'package:prolog_app/shared/widgets/snackbar_mixin.dart';
 
 class TirePage extends StatefulWidget {
   const TirePage({

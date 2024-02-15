@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:prolog_app/core/view/splash_page.dart';
 import 'package:prolog_app/features/tire/tire_module.dart';
+import 'package:prolog_app/shared/view/splash_page.dart';
 
 class AppModule extends Module {
   @override

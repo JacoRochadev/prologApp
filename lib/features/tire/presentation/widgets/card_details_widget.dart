@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prolog_app/core/utils/format_num_to_string_real.dart';
-import 'package:prolog_app/core/utils/parse_num_to_string_psi.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/presentation/widgets/card_item_widget.dart';
+import 'package:prolog_app/shared/utils/format_num_to_string_real.dart';
+import 'package:prolog_app/shared/utils/parse_num_to_string_psi.dart';
 
 class CardDetailsWidget extends StatelessWidget {
   const CardDetailsWidget({

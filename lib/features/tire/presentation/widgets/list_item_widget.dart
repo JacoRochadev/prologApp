@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:prolog_app/core/utils/format_num_to_string_real.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
+import 'package:prolog_app/shared/utils/format_num_to_string_real.dart';
 
 class ListItemWidget extends StatelessWidget {
   const ListItemWidget({

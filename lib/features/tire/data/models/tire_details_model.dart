@@ -1,5 +1,5 @@
-import 'package:prolog_app/core/utils/enums/status_enum.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
+import 'package:prolog_app/shared/utils/enums/status_enum.dart';
 
 class TireDetailsModel extends TireDetailsEntity {
   const TireDetailsModel({
