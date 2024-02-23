@@ -1,13 +1,15 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource_implementation.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
-import 'package:prolog_app/shared/services/dio_service/dio_service.dart';
+import 'package:prolog_app/shared/services/http_client/http_client_dio_implementation.dart';
 
 void main() {
-  DioService dioServiceTire = DioService();
-  final datasource = TireDataSourceImplementation(dioServiceTire);
+  Dio dio = Dio();
+  HttpClientDioImplementation httpClient = HttpClientDioImplementation(dio);
+  final datasource = TireDataSourceImplementation(httpClient);
   test(
       'return tires from the list on page 1 with 10 results in getAllTires ...',
       () async {

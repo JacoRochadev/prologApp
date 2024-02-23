@@ -5,11 +5,11 @@ import 'package:prolog_app/features/tire/data/models/tire_details_model.dart';
 import 'package:prolog_app/features/tire/data/models/tire_model.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_details_entity.dart';
 import 'package:prolog_app/features/tire/domain/entities/tire_entity.dart';
-import 'package:prolog_app/shared/services/dio_service/dio_service.dart';
+import 'package:prolog_app/shared/clients/http_client/http_client.dart';
 import 'package:prolog_app/shared/services/errors/parse_api_error_response.dart';
 
 class TireDataSourceImplementation implements ITireDataSource {
-  final DioService _service;
+  final HttpClient _service;
 
   TireDataSourceImplementation(this._service);
 
@@ -25,8 +25,9 @@ class TireDataSourceImplementation implements ITireDataSource {
         "pageSize": pageSize,
         "pageNumber": pageNumber,
       };
-      final response = await _service.dio.get(
-        'api/v3/tires',
+      const String path = 'api/v3/tires';
+      final response = await _service.get(
+        path,
         queryParameters: queryParameters,
       );
       bool status = response.data['empty'];
@@ -48,9 +49,8 @@ class TireDataSourceImplementation implements ITireDataSource {
     required int id,
   }) async {
     try {
-      final response = await _service.dio.get(
-        'api/v3/tires/$id',
-      );
+      final String path = 'api/v3/tires/$id';
+      final response = await _service.get(path);
 
       return Right(TireDetailsModel.fromJson(response.data));
     } on DioException catch (error) {

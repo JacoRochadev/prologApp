@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource.dart';
 import 'package:prolog_app/features/tire/data/datasources/tire_datasource_implementation.dart';
@@ -7,12 +9,11 @@ import 'package:prolog_app/features/tire/domain/usecases/tire_usecases.dart';
 import 'package:prolog_app/features/tire/presentation/pages/tire_details_page.dart';
 import 'package:prolog_app/features/tire/presentation/pages/tire_page.dart';
 import 'package:prolog_app/features/tire/presentation/stores/tire_store.dart';
-import 'package:prolog_app/shared/services/dio_service/dio_service.dart';
 
 class TireModule extends Module {
   @override
   void binds(i) {
-    i.addSingleton<DioService>(DioService.new);
+    i.addSingleton<HttpClient>(HttpClient.new);
     i.addSingleton<TireStore>(TireStore.new);
     i.addSingleton<TireUseCases>(TireUseCases.new);
     i.addSingleton<ITireRepository>(TireRepositoryImplementation.new);
